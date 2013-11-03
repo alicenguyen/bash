@@ -4,9 +4,9 @@ alias cd..='cd ..'
 alias vimrcs="~/.vim_runtime/vimrcs"
 
 # aliases - file shortcuts
-alias psych="cd /Users/alice/Dropbox/school/fall13/psych105"
-alias 101="cd /Users/alice/Dropbox/school/fall13/cse101"
-alias gb="cd /Users/alice/projects/GradeBaker"
+alias psych="cd ~/Dropbox/school/fall13/psych105"
+alias 101="cd ~/Dropbox/school/fall13/cse101"
+alias gb="cd ~/Projects/GradeBaker"
 alias libnum="echo 21822054334380"
 
 STARTCOLOR_GREEN="\[\e[0;32m\]";
