@@ -11,6 +11,10 @@ alias 101="cd ~/Dropbox/school/fall13/cse101"
 alias gb="cd ~/Projects/GradeBaker"
 alias libnum="echo 21822054334380"
 
+# aliases -- applications
+alias chrome="open /Applications/Google\ Chrome.app/"
+alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g "
+
 STARTCOLOR_GREEN="\[\e[0;32m\]";
 STARTCOLOR_DARKRED="\[\e[1;31m\]";
 STARTCOLOR_YELLOW="\[\e[0;33m\]";
