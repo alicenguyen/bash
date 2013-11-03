@@ -2,6 +2,8 @@
 alias ls='ls -aG'
 alias cd..='cd ..'
 alias vimrcs="~/.vim_runtime/vimrcs"
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # aliases - file shortcuts
 alias psych="cd ~/Dropbox/school/fall13/psych105"
