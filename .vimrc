@@ -148,8 +148,8 @@ nnoremap <Leader>0 :10b<CR>
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " 80-column layout guide
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 "*************************************
 "***** PLUGIN CONFIGURATINS **********
@@ -172,3 +172,19 @@ map <leader>[ :TagbarToggle<CR>
 "---------- indentline --------------
 imap jj <Esc>
 set backspace=indent,eol,start
+" --------- window resize at vertical split ------------
+"  The windows resize so that the current split is maximised. The other splits
+"  are automatically resized to be smaller
+" Always show line numbers, but only in current window.
+set number
+:au WinEnter * :setlocal number
+:au WinLeave * :setlocal nonumber
+ " Automatically resize vertical splits.
+:au WinEnter * :set winfixheight
+:au WinEnter * :wincmd =
+"---------- continuous line number ----------
+"http://i.imgur.com/Td8Jd.png
+noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+
+
+
