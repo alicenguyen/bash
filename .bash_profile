@@ -14,7 +14,7 @@ alias libnumj="echo 21822054451838"
 alias zleep="cd /Users/alicenguyen/classes/w14/cse170/IntroHCI/hci-zleep_app; ls"
 # aliases -- applications
 alias chrome="open /Applications/Google\ Chrome.app/"
-alias mvim="/usr/local/Cellar/macvim/7.4-72/MacVim.app/Contents/MacOS/Vim -g "
+alias mvim="/usr/local/Cellar/macvim/7.4-77/MacVim.app/Contents/MacOS/Vim -g "
 alias yuno="python /Users/alicenguyen/compilerz/Project1/yuno/yuno.py"
 alias compilerz="cd ~/compilerz/Project1/src"
 alias mamp="cd /Applications/MAMP"
@@ -28,9 +28,16 @@ ENDCOLOR="\[\e[0m\]"
 export PS1="$STARTCOLOR_DARKRED\h:$ENDCOLOR$STARTCOLOR_GREEN\\w>$STARTCOLOR_YELLOW$ $ENDCOLOR"
 export PATH=/usr/local/bin:$PATH
 
-
-
 alias cs131s="cd /Users/alicenguyen/classes/sp14/cse131"
 alias markr="cd /Users/alicenguyen/classes/cs190"
 alias mba='cd ~/Projects/madebyalice'
 CS131='a8nguyen@ieng9.ucsd.edu:/home/solaris/ieng9/cs131s/a8nguyen'
+export PATH="/usr/local/sbin:$PATH"
+
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias lf='cd /Users/alicenguyen/PINT/lensferry'
+alias lff='cd /Users/alicenguyen/PINT/lensferry/LensFerry'
+alias drs='cd /Users/alicenguyen/PINT/lensferry/Lensferry-DRS'
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+

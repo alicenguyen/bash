@@ -1,26 +1,12 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here') 
-" let Vundle manage Vundle, required
+
+" Let Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-
+" Plugins
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'https://github.com/othree/javascript-libraries-syntax.vim.git'
 Plugin 'https://github.com/vim-scripts/JavaScript-Indent.git'
@@ -38,55 +24,37 @@ Plugin 'https://github.com/rust-lang/rust.vim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
+Plugin 'diepm/vim-rest-console'
+Plugin 'https://github.com/rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
+
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+
+" solarized configuration
+"let g:solarized_termcolors=256
 
 
 syntax on
-"filetype plugin indent on
-set runtimepath+=~/.vim_runtime
-"source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-"source ~/.vim_runtime/vimrcs/extended.vim
-
-" i added this
-try
-"   source ~/.vim_runtime/my_configs.vim
-catch
-endtry
-
-nnoremap qq :tabprevious<CR>
-nnoremap pp :tabnext<CR>
-set nu
-highlight LineNr guifg=#4d4d4
+set background=dark
 colorscheme solarized 
+" shut that bell up
+set noerrorbells visualbell t_vb= 
 
-" tab == n spaces
 set shiftwidth=4
 set tabstop=4
 set autoindent
 let html_no_rendering=1 
+highlight LineNr guifg=#4d4d4
+set nu
 
-try
-   execute pathogen#infect()
-catch
-endtry
-
+nnoremap qq :tabprevious<CR>
+nnoremap pp :tabnext<CR>
 
 map <leader>] :NERDTreeToggle<CR>
 set guifont=Menlo:h11
@@ -151,6 +119,29 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
 
+" ui config "
+set showcmd         " show command in bottom bar.
+set cursorline      " highlight current line.
+set wildmenu        " visual autocomplete for command mene.
+set lazyredraw      " redraw only when we need to.
+set showmatch       " highlight matching [{()}]
+
+" searching "
+set incsearch       " search as characters are enered
+set hlsearch        " highlight matches
+
+" folding "
+nnoremap <space> za     " space open/closes folds
+set foldmethod=indent   " fold based on indent level
+
+" movement "
+nnoremap j gj           " move vertically by visual line
+nnoremap k gk
+nnoremap B ^            " move to beginning/end of line
+nnoremap E $
+nnoremap $ <nop>        " $/^ doesn't do anything
+nnoremap gV `[v`]
+
 "*************************************
 "***** PLUGIN CONFIGURATINS **********
 "*************************************
@@ -164,6 +155,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jsxhint']
 "---------- indent-guides--------------
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
@@ -186,5 +178,9 @@ set number
 "http://i.imgur.com/Td8Jd.png
 noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
-
+" this allows you to undo changes to a file after closing and reopening it
+set undofile
+set undodir=~/.vim/undodir
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 

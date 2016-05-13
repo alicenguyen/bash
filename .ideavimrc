@@ -1,0 +1,3 @@
+imap jj <ESC>
+set visualbell
+set noerrorbells
